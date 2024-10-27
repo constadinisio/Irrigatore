@@ -6,9 +6,68 @@
     </title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
     <!-- The website JavaScript file -->
-    <script src="/script.js" defer></script>
+    <script>
+        function updatePingStatus() {
+                    $.ajax({
+                        type: 'GET',
+                        url: './ping.php',
+                        dataType: 'json',
+                        success: function(data) {
+                            let statusEmoji;
+                            switch (data.status) {
+                                case 'OK':
+                                    statusEmoji = '🟢';
+                                    break;
+                                case 'ERROR':
+                                    statusEmoji = '🔴';
+                                    break;
+                            }
+                            $('#pingStatus').text(statusEmoji + ' ' + data.status);
+                        }
+                    });
+                }
+
+                // Actualizar datos cada 10 segundos
+                setInterval(function() {
+                    updatePingStatus();
+                }, 1000);
+    </script>
+
+    <?php
+        // Connect to the database
+        $conn = new mysqli('localhost', 'root', '', 'irrigatore');
+
+        // Check connection
+        if ($conn->connect_error) {
+            die("Connection failed: " . $conn->connect_error);
+        }
+
+        // Query the database to get the latest data
+        $sql = "SELECT temperatura, humedad_aire, humedad_tierra FROM ciclo ORDER BY id DESC LIMIT 1";
+        $result = $conn->query($sql);
+
+        if ($result->num_rows > 0) {
+            // Get the latest data
+            $row = $result->fetch_assoc();
+            $tempAmbiente = $row['temperatura'];
+            $humAmbiente = $row['humedad_aire'];
+            $porcHumedad = $row['humedad_tierra'];
+
+            // Return the data in JSON format
+            echo json_encode(array(
+                'tempAmbiente' => $tempAmbiente,
+                'humAmbiente' => $humAmbiente,
+                'porcHumedad' => $porcHumedad
+            ));
+        } else {
+            echo json_encode(array('error' => 'No data found'));
+        }
+
+        $conn->close();
+    ?>
   </head>
   <body class="bg-gray-100">
     <div class="flex">
@@ -112,7 +171,7 @@
                         Temperatura Ambiente
                     </h3>
                     <p class="text-2xl">
-                        %tempAmbiente%
+                    <?php echo $tempAmbiente; ?>°C
                     </p>
                 </div>
                 <div class="bg-red-500 text-white p-4 rounded-lg shadow-md">
@@ -120,7 +179,7 @@
                         Humedad Ambiente
                     </h3>
                     <p class="text-2xl">
-                        %humAmbiente%
+                        <?php echo $humAmbiente; ?>°C
                     </p>
                 </div>
                 <div class="bg-green-500 text-white p-4 rounded-lg shadow-md">
@@ -128,13 +187,22 @@
                         Porcentaje de Humedad en Tierra
                     </h3>
                     <p class="text-2xl">
-                        %porcHumedad%
+                        <?php echo $porcHumedad; ?>%
+                    </p>
+                </div>
+                <div class="bg-gray-500 text-white p-4 rounded-lg shadow-md">
+                    <h3 class="text-lg font-semibold">
+                        Estado de NodeMCU ESP8266
+                    </h3>
+                    <p class="text-2xl" id="pingStatus">
+                        🟡 CONECTANDO...
                     </p>
                 </div>
             </div>
-            <div class="bg-gray-800 text-white p-2 rounded-lg shadow-md">
+            <div class="bg-gray-800 text-white p-2 rounded-lg shadow-md" style="width:1000px">
+            <table>
                 <thead>
-                    <tr class="bg-gray-200">
+                    <tr style="background-color:#2563eb">
                         <th class="py-2 px-4 border">N° de Ciclo</th>
                         <th class="py-2 px-4 border">Temperatura de Aire</th>
                         <th class="py-2 px-4 border">Humedad en el Aire</th>
@@ -145,18 +213,7 @@
                 </thead>
                 <tbody>
                     <?php
-                    $servername = "IP_SERVIDOR";
-                    $username = "root";
-                    $password = "";
-                    $dbname = "irrigatore";
-        
-                    // Crear conexión
-                    $conn = new mysqli($servername, $username, $password, $dbname);
-        
-                    // Comprobar conexión
-                    if ($conn->connect_error) {
-                        die("Conexión fallida: " . $conn->connect_error);
-                    }
+                    include 'conexion.php';
         
                     $sql = "SELECT * FROM ciclo";
                     $result = $conn->query($sql);
@@ -180,6 +237,7 @@
                     $conn->close();
                     ?>
                 </tbody>
+                </table>
             </div>
         </div>
     </div>
