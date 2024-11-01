@@ -10,11 +10,11 @@
 <h4 align="center">Un sistema de Riego Automático usando diferentes métodos físicos hasta digitales llamado<a href="https://github.com/constadinisio/Irrigatore---Sistema-de-Riego" target="_blank"> Irrigatore</a>.</h4>
 
 <p align="center">
-  <a href="#-información">📖 Información</a> •
-  <a href="#-configuración">⚙ Configuración</a> •
-  <a href="#-creditos">👥 Creditos</a> •
-  <a href="#-lenguajes-utilizados">👨‍💻 Lenguajes Utilizados</a> •
-  <a href="#-licencia">📋 Licencia</a>
+  <a href="https://github.com/constadinisio/Irrigatore---Sistema-de-Riego?tab=readme-ov-file#-informaci%C3%B3n">📖 Información</a> •
+  <a href="https://github.com/constadinisio/Irrigatore---Sistema-de-Riego?tab=readme-ov-file#-configuraci%C3%B3n">⚙ Configuración</a> •
+  <a href="https://github.com/constadinisio/Irrigatore---Sistema-de-Riego?tab=readme-ov-file#-creditos">👥 Creditos</a> •
+  <a href="https://github.com/constadinisio/Irrigatore---Sistema-de-Riego?tab=readme-ov-file#-lenguajes-utilizados">👨‍💻 Lenguajes Utilizados</a> •
+  <a href="https://github.com/constadinisio/Irrigatore---Sistema-de-Riego?tab=readme-ov-file#license">📋 Licencia</a>
 </p>
 
 ## 📖 Información
@@ -128,7 +128,7 @@ El proyecto da creditos a las siguientes personas:
 |**Plataforma de Desarrollo**: | [![Arduino IDE](https://img.shields.io/badge/Arduino-00979D?style=for-the-badge&logo=Arduino&logoColor=white)](https://arduino.cc) [![XAMPP](https://img.shields.io/badge/Xampp-F37623?style=for-the-badge&logo=xampp&logoColor=white)](https://www.apachefriends.org/es/index.html) [![Visual Studio Code](https://img.shields.io/badge/Visual_Studio_Code-0078D4?style=for-the-badge&logo=visual%20studio%20code&logoColor=white)](https://code.visualstudio.com/) |
 |**Front End**:|[![Apache](https://img.shields.io/badge/Apache-D22128?style=for-the-badge&logo=Apache&logoColor=white)](https://httpd.apache.org/)|
 
-## License
+## 📋 License
 
 MIT License
 
