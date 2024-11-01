@@ -54,7 +54,7 @@ Ejecutando la Aplicación
 ### - **¿Qué cambios hacer para que el Arduino funcione?**
   * Dentro de la carpeta "Back End - CPP", encontraremos un archivo "irrigatore_backend.ino" haremos los siguientes cambios:
     - Línea 19 y 20: Configuración WiFi <br>
-			```char ssid[] = "ssid_name";        // Tu ssid de WiFi```
+			```char ssid[] = "ssid_name";        // Tu ssid de WiFi```<br>
 			```char pass[] = "ssid_password";    // Tu contraseña de WiFi```
     - Linea 23 a 26: Configuración MySQL <br>
 			```char mysql_user[] = "mysql_user";         // Tu usuario de MySQL```<br>
