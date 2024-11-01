@@ -16,14 +16,14 @@ byte RELE_PIN = D4;
 int YL69_PIN = A0;
 
 // Configuración de la conexión WiFi
-char ssid[] = "WALTER 2.4GHz";        // Tu ssid de WiFi
-char pass[] = "23121996";  // Tu contraseña de WiFi
+char ssid[] = "ssid_name";        // Tu ssid de WiFi
+char pass[] = "ssid_password";    // Tu contraseña de WiFi  // Tu contraseña de WiFi
 
 // Configuración de la conexión MySQL
-char mysql_user[] = "esp";         // Tu usuario de MySQL
-char mysql_password[] = "JNVXWQD[@VsD-NmC";  // Tu contraseña de MySQL
-IPAddress server_ip(192, 168, 1, 33); // 192.168.174.138
-char database[] = "irrigatore"; // Nombre de la base de datos
+char mysql_user[] = "mysql_user";         // Tu usuario de MySQL
+char mysql_password[] = "mysql_pw";  // Tu contraseña de MySQL
+IPAddress server_ip(ipv4_network); //  IPv4 Address: 
+char database[] = "db_name"; // Nombre de la base de datos
 
 WiFiClient client;
 MySQL_Connection conn((Client *)&client);
@@ -47,11 +47,11 @@ void setup() {
     Serial.println(WiFi.localIP());  // Muestra la IP local en el monitor serial
 
   // Conectar a MySQL
-  if (conn.connect(server_ip, 3306, mysql_user, mysql_password)) {
+  if (conn.connect(server_ip, port, mysql_user, mysql_password)) {
     Serial.println("Conectado a MySQL");
     // Seleccionar la base de datos
     MySQL_Cursor cursor(&conn);
-    cursor.execute("USE irrigatore"); // Cambiado
+    cursor.execute("USE db_name"); // Cambiado
   } else {
     Serial.println("Error de conexión a MySQL");
     while(1) { delay(1); } // Detener el programa

@@ -1,5 +1,5 @@
 <?php
-	$conn = new mysqli('127.0.0.2', 'root', '', 'irrigatore');
+	$conn = new mysqli('ip_mysql', 'mysql_user', 'mysql_pw', 'db_name');
 
 	if ($conn->connect_error) {
 	    die(json_encode(['error' => 'Connection failed: ' . $conn->connect_error]));
@@ -15,6 +15,5 @@
 	    echo json_encode(['error' => 'No data found']);
 	}
 
-	echo json_encode($data);
 	$conn->close();
 ?>

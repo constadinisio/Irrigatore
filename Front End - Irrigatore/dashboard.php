@@ -28,7 +28,7 @@
             });
         }
 
-        // Actualizar datos cada 10 segundos
+        // Actualizar datos cada 1 segundo
         setInterval(function () {
             updatePingStatus();
         }, 1000);
@@ -103,7 +103,7 @@
 
     <?php
     // Conexión a la base de datos
-    $conn = new mysqli('127.0.0.2', 'root', '', 'irrigatore');
+    $conn = new mysqli('ip_mysql', 'mysql_user', 'mysql_pw', 'db_name');
 
     // Verificar la conexión
     if ($conn->connect_error) {
@@ -150,7 +150,7 @@
         <div class="w-64 text-white h-screen" style="background-color:#10242b">
             <div class="p-4 flex items-center">
                 <img alt="Logo" class="h-20 w-60 mr-2" height="40"
-                    src="https://irrigatore.s3.us-east-2.amazonaws.com/Irrigatore.jpg?response-content-disposition=inline&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEAEaCXVzLWVhc3QtMiJGMEQCID5yBNGE8IpESkd26FahJzP%2BJNJVpVq%2F8LE3p3rl2LP6AiABzSPgQHWPcAMjKEy5bodyBENcbvL5FsbFhq77FPVVvyrHAwh6EAAaDDkxMzUyNDk0MDYyOCIM5xO2SguOndKPfXSTKqQDT72Ic4Ae6%2FPD%2ByD%2BbXexGRk3k7LUoKqkPaICBoJcqsBlJFQP4BuvR7UlzYV2NmD2y0RjstzKsMuBtgbtBqBr9WtoK242T8CfwKrLfr%2BBQ7GoOTdKPAG1OQA8j3Brp5ELe3o1FZAyq8kDc3wktd4%2FHVSahMF9jRQrUFqzbb2Oz5C2h9XpHSRS1ZioBCuMRQ2rPCNOkULquZDKwRc8U9qU5uwQCHrP5OmQdK%2Fuwh3EGoMF6hcvIWkTSdMYEl7nlLhytGQWEJzDM8uLDgEHFsQf1qnJ4KQ3nge8Xf%2BVqEtSC%2B2ha%2F1VkwFmnkdcWCk%2F6q8kZ7BXyQ9%2FRAUHKj2pywYrFcEtxBAU7524PO8D5c3GWJG1U%2Fo5GQzSxYm8Os%2BeoSJPRBxhUBWgVfQlXRMQJTYx6tdnCPMyhg4HoL7vy4%2FEAEB5oI%2FDaqLoaT3n%2BFi6rOUW3pA69DoJTmG74SneJ2TA6UFwymyq1%2Bfy88ES2oZktjgLzDeGl2iThKny876x9k5xziG33%2BahgTXF7y2mnSUp98Bix378jPUXnaamgntXgmjNEcmUMIDOibkGOuUCn%2Fvia7W1PGYrklgGbbAVyFbSl4BfzGp0zXWQiFjddowquKxM%2BrZvNUspzVaRp%2BYA0JZ6BzKBoGFNQ%2B1j9Qk4W5ARwohBII8XAhCI7zb2%2BwTkhj1dnCSleFDhn1%2FU3vU2n%2BhJ%2FmJa5Rl6%2F2%2BU%2BR3lJhMYtF9lsKsTAsgkVscgoO68vKC%2BtlAbHfJHh8mvP%2F7X76M4tnN%2F7OUhTEx9zwIiYYgWPd93TWE4%2FU2%2BDNUnPqvtSt1czFRMURNcnaFRpC8w107MKn5wikTtubiVZMhxDZNv6zBW2aSNd01kwU5UMdO9PYloSIpXLugZ8WyGDFGbe8pQnHVzr%2FIVqo9cUzrewSSrVrcs2EFKRbLGGkz9MitUXlOJU7OEcbrfrHmgv%2BDgHMMRXwADklNXS8u1KdUXaP3q2j2DWlEmlAdIHlIIqUs5lL0wM46GksNwISAxUZHVGsnoD7YeaWNPnwBVJWiFQe18bcbN&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA5JMSUL5KIOR5ITAK%2F20241030%2Fus-east-2%2Fs3%2Faws4_request&X-Amz-Date=20241030T170754Z&X-Amz-Expires=43200&X-Amz-SignedHeaders=host&X-Amz-Signature=c567add772a638c2add86e066e3f4c30f7c30dae99a09ef70a65e9a376ab332c"
+                    src="https://irrigatore.s3.us-east-2.amazonaws.com/Irrigatore.jpg?response-content-disposition=inline&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEC4aCXVzLWVhc3QtMiJGMEQCIDHNmFVFD%2BZnTpifmS%2FOdm7uecoUVz04YUBntR9GIUUPAiBFoHeH3AXc1OgDjqNBYvubF1K2hOuqWCjIegdIJAGkYCrQAwin%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F8BEAAaDDkxMzUyNDk0MDYyOCIMYfxWBb3MGMjdGMmsKqQDMq0H49FZmLZPZPA0g7YhzP7erbH5bEnu%2BQHVxtqQ6naxB8I79Vvfz4tlDOsy%2Fwub9J4siG3CFHpsE8wrZE4%2F7UXaaihn4pDv58hZddceAyds1ZHO0YHlQ44BOAwwSWjuCW61biCeXT70EjfQlMo3Y2upbO2NNZ85uZCa%2BRFmQgoZVeGmoq6xRXt1FM6Qx6rAZnSOSg7VMWUmwDu8X8NMXyHTxbjsjcZAVB3%2BKhHlSn5zq5E2MWlC1puXaBzhsjA1CA%2BdUkoRfdYGYOkg%2FrUxO45NL9hITvF%2F2sSA89qvI98Ybm2V4D4vL0lxFgEicf%2BadhL%2FOwE3jea%2FB5XNBe%2Fjbu%2B1NQFs%2FCcHu9yP6tFB%2Bto%2FrdujrXZlsPDL38hDUBtapLnYlZjwsy9weCNmJZsRxE%2BQL3CANS3JNLdxJ5opH3vw%2BL%2BtSA8SJSgACk58lmQES62y4RAthhwved0%2BzZiGQYPnk%2BFhrhdPuYhujBNaII8thKroPl71T%2BQgpdCFyEekqs6%2BRsCerWMnKXPfzI6Ts4dmGsbkXZ2xL4vBTrkm2XZki2cPMLe8k7kGOuUCPlPuAaQSYWMMPdp%2BxyzH%2BGBLAXPasfQL5ErIOkxoLbuK7aZf%2BbsAQKbhlghEJ00dNNxgG%2FqIpgg97FUj8VOVAo1NKHzp%2BXUOTOBkh%2FqH1KFVqKywlU1ILT%2FkPn3JsFp%2BjLHYFTlEpHkY2nVozGcSqpSm7UDfd46BIHjR%2Bpx6cbLcQIco%2B5V%2FHS9Ps7iopcScyULj0zKFCxVACsT%2BOYlnjPJCEvbgP%2BudVVjG4M%2FQqUm4wO9EIq0I8zwF%2BZtNWpXndXD1Y2dRfC%2Bo2jxED8Vt0W6hqQ%2FlKvfCfoipkMJq77SYfa9UmOq8ynwKQFZqmyXC6pF0C%2FnAFFn6rH7Gs1Qoubitfg5mk0qKTsJqNQQhpI1IzqKYftQwbMhiePGnklz0NKiZtPL00YSRD%2BhxRw05P%2FcPHT1CNYK3IZRDd1hgAWqD8Ngsz0VCwjcHxJYYYe9DkDwASfWd0EsVZKdMLc55A%2BUbyV7%2B&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA5JMSUL5KEQIC6RZB%2F20241101%2Fus-east-2%2Fs3%2Faws4_request&X-Amz-Date=20241101T140053Z&X-Amz-Expires=43200&X-Amz-SignedHeaders=host&X-Amz-Signature=42f30667833fc6bac9e2b2f7df9630fcbc0934cd3af9e2f6187862f228a38897"
                     width="40">
             </div>
             <nav class="mt-10">

@@ -1,8 +1,8 @@
 <?php
-     $servername = "127.0.0.2";
-     $username = "root";
-     $password = "";
-     $dbname = "irrigatore";
+     $servername = "ip_mysql";
+     $username = "mysql_user";
+     $password = "mysql_pw";
+     $dbname = "db_name";
 
      // Crear conexión
      $conn = new mysqli($servername, $username, $password, $dbname);
