@@ -1,127 +1,129 @@
 
 <h1 align="center">
   <br>
-  <a href="http://www.amitmerchant.com/electron-markdownify"><img src="https://raw.githubusercontent.com/amitmerchant1990/electron-markdownify/master/app/img/markdownify.png" alt="Markdownify" width="200"></a>
+  <a href="http://www.amitmerchant.com/electron-markdownify"><img src="https://github.com/constadinisio/Irrigatore---Sistema-de-Riego/blob/main/Front%20End%20-%20Irrigatore/Irrigatore%20(1).jpg" alt="Markdownify" width="200"></a>
   <br>
-  Markdownify
+  Irrigatore
   <br>
 </h1>
 
-<h4 align="center">A minimal Markdown Editor desktop app built on top of <a href="http://electron.atom.io" target="_blank">Electron</a>.</h4>
+<h4 align="center">Un sistema de Riego Automático usando diferentes métodos físicos hasta digitales llamado<a href="https://github.com/constadinisio/Irrigatore---Sistema-de-Riego" target="_blank"> Irrigatore</a>.</h4>
 
 <p align="center">
-  <a href="https://badge.fury.io/js/electron-markdownify">
-    <img src="https://badge.fury.io/js/electron-markdownify.svg"
-         alt="Gitter">
-  </a>
-  <a href="https://gitter.im/amitmerchant1990/electron-markdownify"><img src="https://badges.gitter.im/amitmerchant1990/electron-markdownify.svg"></a>
-  <a href="https://saythanks.io/to/bullredeyes@gmail.com">
-      <img src="https://img.shields.io/badge/SayThanks.io-%E2%98%BC-1EAEDB.svg">
-  </a>
-  <a href="https://www.paypal.me/AmitMerchant">
-    <img src="https://img.shields.io/badge/$-donate-ff69b4.svg?maxAge=2592000&amp;style=flat">
-  </a>
+  <a href="#-información">📖 Información</a> •
+  <a href="#-configuración">⚙ Configuración</a> •
+  <a href="#-creditos">👥 Creditos</a> •
+  <a href="#-lenguajes-utilizados">👨‍💻 Lenguajes Utilizados</a> •
+  <a href="#-licencia">📋 Licencia</a>
 </p>
 
-<p align="center">
-  <a href="#key-features">Key Features</a> •
-  <a href="#how-to-use">How To Use</a> •
-  <a href="#download">Download</a> •
-  <a href="#credits">Credits</a> •
-  <a href="#related">Related</a> •
-  <a href="#license">License</a>
-</p>
+## 📖 Información
 
-![screenshot](https://raw.githubusercontent.com/amitmerchant1990/electron-markdownify/master/app/img/markdownify.gif)
+Nos complace presentar Irrigatore, un proyecto innovador y único desarrollado por un grupo de estudiantes como parte de su proyecto final en conjunto a las materias "Proyecto Integrador I" y "Dispositivos Electrónicos Programables". Irrigatore se idea a partir y con la misión de facilitar y optimizar el riego de plantas y huertas, proporcionando una solución automatizada que libera a las personas de la constante preocupación de regar sus plantas.
 
-## Key Features
+Este sistema de riego automático está diseñado para detectar la necesidad de agua de las plantas y activarse de manera inteligente, asegurando un uso eficiente del recurso y cuidando la salud de las plantas.
 
-* LivePreview - Make changes, See changes
-  - Instantly see what your Markdown documents look like in HTML as you create them.
-* Sync Scrolling
-  - While you type, LivePreview will automatically scroll to the current location you're editing.
-* GitHub Flavored Markdown  
-* Syntax highlighting
-* [KaTeX](https://khan.github.io/KaTeX/) Support
-* Dark/Light mode
-* Toolbar for basic Markdown formatting
-* Supports multiple cursors
-* Save the Markdown preview as PDF
-* Emoji support in preview :tada:
-* App will keep alive in tray for quick usage
-* Full screen mode
-  - Write distraction free.
-* Cross platform
-  - Windows, macOS and Linux ready.
+## ⚙ Configuración
 
-## How To Use
+<details open>
+<summary>
+Pre-Requisitos
+</summary> <br />
+Para poder ejecutar nuestro proyecto tendrás que tener los siguientes programas:
 
-To clone and run this application, you'll need [Git](https://git-scm.com) and [Node.js](https://nodejs.org/en/download/) (which comes with [npm](http://npmjs.com)) installed on your computer. From your command line:
+###
 
-```bash
-# Clone this repository
-$ git clone https://github.com/amitmerchant1990/electron-markdownify
+* Programas a Utilizar:
+  - XAMPP
+  - Visual Studio Code
+  - Arduino
+* Hardware a Utilizar:
+  - DHT11  			_(x1)_
+  - YL69   			_(x1)_
+  - Placa de Desarrollo ESP8266	_(x1)_
+  - Cable Dupont		_(x11)_
+  - Bomba de agua para fuente	_(x1)_
+  - Relé de un canal		_(x1)_
+</details>
 
-# Go into the repository
-$ cd electron-markdownify
+<details open>
+<summary>
+Ejecutando la Aplicación
+</summary> <br />
 
-# Install dependencies
-$ npm install
+### - **¿Qué cambios hacer para que el Arduino funcione?**
+  * Dentro de la carpeta "Back End - CPP", encontraremos un archivo "irrigatore_backend.ino" haremos los siguientes cambios:
+    - Línea 19 y 20: Configuración WiFi <br>
+			```char pass[] = "ssid_password";    // Tu contraseña de WiFi```
+    - Linea 23 a 26: Configuración MySQL <br>
+			```char mysql_user[] = "mysql_user";         // Tu usuario de MySQL```<br>
+			```char mysql_password[] = "mysql_pw";  // Tu contraseña de MySQL```<br>
+			```IPAddress server_ip(ipv4_network); //  IPv4 Address```<br>
+			```char database[] = "db_name"; // Nombre de la base de datos```<br>
+    - Linea 50: Database MySQL: <br>
+			```if (conn.connect(server_ip, port, mysql_user, mysql_password)) { // "port" por el puerto que tengamos configurado en nuestra base de datos MySQL.```<br>
+    - Linea 54: Database MySQL: <br>
+			```cursor.execute("USE db_name"); // "db_name" por el nombre de la base de datos que estemos usando.```
 
-# Run the app
-$ npm start
-```
+### - **¿Qué cambios hacer para que el MySQL funcione?**
+  * Dentro del programa XAMPP, más específicamente en "my.ini":
+    - Descomentamos y reemplazamos por el siguiente texto:
+			```* bind-address=0.0.0.0```
+  * Dentro del phpMyAdmin
+      - Usuarios:
+        - Iremos a la sección "User Accounts" y vamos a crear un usuario con contraseña dandole todos los permisos que sean posibles, además de ponerle como target al "Host Name" como "Any Host" (Lo usaremos en el código Arduino reemplazando "mysql_user" y "mysql_pw").
+      - Importar Tabla:
+        - Como último paso crearemos una base de datos (Con el mismo nombre con el que estamos reemplazando en el Arduino como "db_name" e importaremos la plantilla que está subida al repositorio de GitHub.
+       
+### **¿Qué cambios hacer para que la Webpage funcione?**
+  * Dentro del directorio encontraremos diferentes archivos, empezaremos por el "conexion.php":
+   - Lo que reemplazaremoos va a ser lo siguiente:<br>
+     - File: **conexion.php**
+       	- Línea 2:
+	   ```$servername = "ip_mysql";```<br>
+			> Ingresaremos la ip que tenemos en especifica para ingresar al panel MySQL.
+         - Línea 3:
+           ```$username = "mysql_user";```<br>
+			> Ingresaremos el usuario que creamos en el MySQL especificamente para la conexión de nuestra placa.
+         - Línea 4:
+     	   ```$password = "mysql_pw";```<br>
+			> Vamos a setear la password con la contraseña que definimos al crear nuestro usuario.
+         - Línea 5:
+     	   ```$dbname = "db_name";```<br>
+			> Pondremos el nombre de la base de datos que creamos anteriormente en el MySQL.
+     - File: **dashboard.php**
+		- Línea 106:
+		  ```$conn = new mysqli('ip_mysql', 'mysql_user', 'mysql_pw', 'db_name');```<br>
+			> Reemplazaremos esas variables con la información que cambiamos en el "conexion.php"
+     - File: **obtener_datos.php**
+		- Línea 2:
+		  ```$conn = new mysqli('ip_mysql', 'mysql_user', 'mysql_pw', 'db_name');```
+			> Reemplazaremos esas variables con la información que cambiamos en el "conexion.php"
+     - File: **ping.php**
+		- Línea 2:
+		  -$ip = 'ip_esp';<br>
+    		> IP de la placa de desarrollo que estemos usando.
 
-> **Note**
-> If you're using Linux Bash for Windows, [see this guide](https://www.howtogeek.com/261575/how-to-run-graphical-linux-desktop-applications-from-windows-10s-bash-shell/) or use `node` from the command prompt.
+</details>
 
+## 👥 Creditos
 
-## Download
+El proyecto da creditos a las siguientes personas:
+ - ✨ Constantino Di Nisio - ***Programación - HTML y Arduino***<br>
+ - ✨ Marcos Baez - ***Ayudante en Código e Ideador de Software***<br>
+ - ✨ Lionel Mazza - ***Ideador del Proyecto***<br>
+ - ✨ Santino Bustamante - ***Documentador***<br>
+ - ✨ Laureano Bernat - ***Documentador***<br>
 
-You can [download](https://github.com/amitmerchant1990/electron-markdownify/releases/tag/v1.2.0) the latest installable version of Markdownify for Windows, macOS and Linux.
+## 👨‍💻 Lenguajes Utilizados
 
-## Emailware
-
-Markdownify is an [emailware](https://en.wiktionary.org/wiki/emailware). Meaning, if you liked using this app or it has helped you in any way, I'd like you send me an email at <bullredeyes@gmail.com> about anything you'd want to say about this software. I'd really appreciate it!
-
-## Credits
-
-This software uses the following open source packages:
-
-- [Electron](http://electron.atom.io/)
-- [Node.js](https://nodejs.org/)
-- [Marked - a markdown parser](https://github.com/chjj/marked)
-- [showdown](http://showdownjs.github.io/showdown/)
-- [CodeMirror](http://codemirror.net/)
-- Emojis are taken from [here](https://github.com/arvida/emoji-cheat-sheet.com)
-- [highlight.js](https://highlightjs.org/)
-
-## Related
-
-[markdownify-web](https://github.com/amitmerchant1990/markdownify-web) - Web version of Markdownify
-
-## Support
-
-<a href="https://buymeacoffee.com/amitmerchant" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/purple_img.png" alt="Buy Me A Coffee" style="height: 41px !important;width: 174px !important;box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;" ></a>
-
-<p>Or</p> 
-
-<a href="https://www.patreon.com/amitmerchant">
-	<img src="https://c5.patreon.com/external/logo/become_a_patron_button@2x.png" width="160">
-</a>
-
-## You may also like...
-
-- [Pomolectron](https://github.com/amitmerchant1990/pomolectron) - A pomodoro app
-- [Correo](https://github.com/amitmerchant1990/correo) - A menubar/taskbar Gmail App for Windows and macOS
+|Base de Datos: | [![MySQL](https://img.shields.io/badge/MySQL-005C84?style=for-the-badge&logo=mysql&logoColor=white)](https://mysql.com/) [![Amazon AWS](https://img.shields.io/badge/Amazon_AWS-FF9900?style=for-the-badge&logo=amazonaws&logoColor=white)](https://aws.amazon.com/) [![Amazon RDS](https://img.shields.io/badge/Amazon%20RDS-527FFF?style=for-the-badge&logo=amazon-rds&logoColor=white)](https://aws.amazon.com/)|
+|-:|:-|
+|**Lenguajes**: | [![C++](https://img.shields.io/badge/C%2B%2B-00599C?style=for-the-badge&logo=c%2B%2B&logoColor=white)](https://isocpp.org/) [![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)](https://html.spec.whatwg.org/multipage/) [![JavaSript](https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E)]([https://html.spec.whatwg.org/multipage/](https://developer.mozilla.org/es/docs/Web/JavaScript)) [![PHP](https://img.shields.io/badge/PHP-777BB4?style=for-the-badge&logo=php&logoColor=white)](https://php.net/)|
+|**Plataforma de Desarrollo**: | [![Arduino IDE](https://img.shields.io/badge/Arduino-00979D?style=for-the-badge&logo=Arduino&logoColor=white)](https://arduino.cc) [![XAMPP](https://img.shields.io/badge/Xampp-F37623?style=for-the-badge&logo=xampp&logoColor=white)](https://www.apachefriends.org/es/index.html) [![Visual Studio Code](https://img.shields.io/badge/Visual_Studio_Code-0078D4?style=for-the-badge&logo=visual%20studio%20code&logoColor=white)](https://code.visualstudio.com/) |
+|**Front End**:|[![Apache](https://img.shields.io/badge/Apache-D22128?style=for-the-badge&logo=Apache&logoColor=white)](https://httpd.apache.org/)|
 
 ## License
 
-MIT
-
----
-
-> [amitmerchant.com](https://www.amitmerchant.com) &nbsp;&middot;&nbsp;
-> GitHub [@amitmerchant1990](https://github.com/amitmerchant1990) &nbsp;&middot;&nbsp;
-> Twitter [@amit_merchant](https://twitter.com/amit_merchant)
+MIT License
 
