@@ -20,9 +20,9 @@ char ssid[] = "WALTER 2.4GHz";        // Tu ssid de WiFi
 char pass[] = "23121996";  // Tu contraseña de WiFi
 
 // Configuración de la conexión MySQL
-char mysql_user[] = "root";         // Tu usuario de MySQL
-char mysql_password[] = "";  // Tu contraseña de MySQL
-IPAddress server_ip(192, 168, 0, 1); // Cambia a la IP de tu servidor MySQL
+char mysql_user[] = "esp";         // Tu usuario de MySQL
+char mysql_password[] = "JNVXWQD[@VsD-NmC";  // Tu contraseña de MySQL
+IPAddress server_ip(192, 168, 1, 33); // 192.168.174.138
 char database[] = "irrigatore"; // Nombre de la base de datos
 
 WiFiClient client;
@@ -42,12 +42,13 @@ void setup() {
     Serial.println("Conectando a WiFi...");
   }
 
-  Serial.println("Conectado a WiFi");
+    Serial.println("Conectado a WiFi");
+    Serial.print("Dirección IP del ESP8266: ");
+    Serial.println(WiFi.localIP());  // Muestra la IP local en el monitor serial
 
   // Conectar a MySQL
   if (conn.connect(server_ip, 3306, mysql_user, mysql_password)) {
     Serial.println("Conectado a MySQL");
-
     // Seleccionar la base de datos
     MySQL_Cursor cursor(&conn);
     cursor.execute("USE irrigatore"); // Cambiado
@@ -81,11 +82,12 @@ void loop() {
 
     // Preparar la consulta SQL
     MySQL_Cursor cursor(&conn);
-    String query = "INSERT INTO ciclo (temperatura, humedad_aire, humedad_tierra, estado_rele) VALUES (" +
+    String query = "INSERT INTO ciclo (temperatura, humedad_aire, humedad_tierra, estado_rele, creacion) VALUES (" +
                    String(temperatura) + ", " +
                    String(humedad_aire) + ", " +
                    String(humedad_tierra) + ", " +
-                   String(estado_rele) + ")";
+                   String(estado_rele) + ", " +
+                   String(NOW()) + ")";
     
     // Ejecutar la consulta
     cursor.execute(query.c_str());
