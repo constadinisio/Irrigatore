@@ -1,5 +1,5 @@
 <?php
-    $ip = '192.168.1.1'; // IP a pingear
+    $ip = '192.168.1.78'; // IP a pingear
     $timeout = 1; // Tiempo de espera en segundos
     
     $ping = "ping -c 1 -w $timeout $ip";

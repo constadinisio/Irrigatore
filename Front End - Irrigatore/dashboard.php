@@ -70,7 +70,7 @@
 
     <?php
         // Conexión a la base de datos
-        $conn = new mysqli('localhost', 'root', '', 'irrigatore');
+        $conn = new mysqli('127.0.0.2', 'root', '', 'irrigatore');
 
         // Verificar la conexión
         if ($conn->connect_error) {
@@ -115,7 +115,7 @@
         <!-- Sidebar -->
         <div class="w-64 text-white h-screen" style="background-color:#10242b">
             <div class="p-4 flex items-center">
-                <img alt="Logo" class="h-20 w-60 mr-2" height="40" src="https://irrigatore.s3.us-east-2.amazonaws.com/Irrigatore.jpg?response-content-disposition=inline&amp;X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&amp;X-Amz-Security-Token=IQoJb3JpZ2luX2VjENb%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLWVhc3QtMiJHMEUCIAu61wV9WrVsEk8W2RgLkGVrntlcqcTs%2Fx2PViWf9yJ8AiEAwTqh5e%2FpBvZtswe8Jjhvamif8m2j3ur27CRpujRXyyMqxwMIUBAAGgw5MTM1MjQ5NDA2MjgiDD1GVLFrUWMFiKwe5yqkA33hjN%2BeWymnc8ODoZDluisvTS54m46zs3MrUfTd1p2hrBauNxMNC7uE8F%2Ffi5f8mAIuVJM7JoXu4Irr5gbLdgD3lo4D2hZd2FPQM6EyHNZLDtadLLda60nh%2F4vYSXKcMKROoPWLI53UmUGEgkQZLaN76dZcrzK5hg%2FlW%2F0KqYLzZXm4uw2UdeUIhRMVkEL1dpN3dESF2ZmfP%2BajL0XAJT3Qt4gYHMPo15HqMf9k7q0sSi39jdFCkGvsdMqo%2BXL%2FsHXEDbx%2BV58cgu5eB1DLq0U7eu2h6wnBxLCXZX1e%2BSOYTZv1fzfFF5p5moP18Yhn5ow5px3lfJSXLxFVTXOmIxigaELEvVwVy4xAnArGm0MhGhsXVybMlAN1K1ijkZPRoQgIEyg62KaeT29TGIFnA9TB5eyQbO%2FZAGWYa5WTLqAVou5f3dzM2fmyKEpOjMIVh9ibxDF51cIf%2BlZR%2B%2BYUTTXfS%2F1TahZTkwsYKqoWWNL%2Fg5CXvlMTN7IQJqJzoTiWwB6BeVGPnH9si%2BmitHhmUI9E9NikwYsxM8o3o48Z4qXjIpUSEDC9nIC5BjrkAuhydlTENnli4OREQ1O1JmOSwQztcfY8Y3v5B56bWWBWFWTtaTwkyaJKasB1GnsTHF3DwztKuC%2Fj3htVYXhMcszo0eWPsSEkUeHSMip73piBnXwbxZy8fFoDCPWPj2IGveXbPmMsYUXXxnp1T1k745xvkAlLcqP%2BRbdf8WLiKeO%2BWhEDgTg7foXyJJ7ehW7IqCLk50jHNjxVDMTOOPg%2BaIKF%2Fmk7w3Rkirg3%2F3fmRiLt1vuJuF9yeYvHOthrjVQBfQ1swGoDkkO7H%2Fav9co7%2B4NQlV4guKAYAjr5bJsFO2VRVf9pJMMJQM41EpS%2By5n%2B0pB%2FkpDJ3yADIka0U1s0UvMlfPbYp5eHvszr3%2F%2F7ezv8BeMPWtVBDWsbKScGFYONDAVESCts4kq96EAkC6Z%2BBc3lQLtsqR6Dn3TWzQA8DatvjtBJHYi8yO2tk3frPriXqWt%2FRiXg3PGweeiOCKdLR3DLVqWN&amp;X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Credential=ASIA5JMSUL5KEVHE4YEN%2F20241028%2Fus-east-2%2Fs3%2Faws4_request&amp;X-Amz-Date=20241028T222223Z&amp;X-Amz-Expires=43200&amp;X-Amz-SignedHeaders=host&amp;X-Amz-Signature=733a8a84e29a7d409651c23384aa55a3666f1c8550252c73b30d00d364c7f919" width="40">
+                <img alt="Logo" class="h-20 w-60 mr-2" height="40" src="https://irrigatore.s3.us-east-2.amazonaws.com/Irrigatore.jpg?response-content-disposition=inline&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEAEaCXVzLWVhc3QtMiJGMEQCID5yBNGE8IpESkd26FahJzP%2BJNJVpVq%2F8LE3p3rl2LP6AiABzSPgQHWPcAMjKEy5bodyBENcbvL5FsbFhq77FPVVvyrHAwh6EAAaDDkxMzUyNDk0MDYyOCIM5xO2SguOndKPfXSTKqQDT72Ic4Ae6%2FPD%2ByD%2BbXexGRk3k7LUoKqkPaICBoJcqsBlJFQP4BuvR7UlzYV2NmD2y0RjstzKsMuBtgbtBqBr9WtoK242T8CfwKrLfr%2BBQ7GoOTdKPAG1OQA8j3Brp5ELe3o1FZAyq8kDc3wktd4%2FHVSahMF9jRQrUFqzbb2Oz5C2h9XpHSRS1ZioBCuMRQ2rPCNOkULquZDKwRc8U9qU5uwQCHrP5OmQdK%2Fuwh3EGoMF6hcvIWkTSdMYEl7nlLhytGQWEJzDM8uLDgEHFsQf1qnJ4KQ3nge8Xf%2BVqEtSC%2B2ha%2F1VkwFmnkdcWCk%2F6q8kZ7BXyQ9%2FRAUHKj2pywYrFcEtxBAU7524PO8D5c3GWJG1U%2Fo5GQzSxYm8Os%2BeoSJPRBxhUBWgVfQlXRMQJTYx6tdnCPMyhg4HoL7vy4%2FEAEB5oI%2FDaqLoaT3n%2BFi6rOUW3pA69DoJTmG74SneJ2TA6UFwymyq1%2Bfy88ES2oZktjgLzDeGl2iThKny876x9k5xziG33%2BahgTXF7y2mnSUp98Bix378jPUXnaamgntXgmjNEcmUMIDOibkGOuUCn%2Fvia7W1PGYrklgGbbAVyFbSl4BfzGp0zXWQiFjddowquKxM%2BrZvNUspzVaRp%2BYA0JZ6BzKBoGFNQ%2B1j9Qk4W5ARwohBII8XAhCI7zb2%2BwTkhj1dnCSleFDhn1%2FU3vU2n%2BhJ%2FmJa5Rl6%2F2%2BU%2BR3lJhMYtF9lsKsTAsgkVscgoO68vKC%2BtlAbHfJHh8mvP%2F7X76M4tnN%2F7OUhTEx9zwIiYYgWPd93TWE4%2FU2%2BDNUnPqvtSt1czFRMURNcnaFRpC8w107MKn5wikTtubiVZMhxDZNv6zBW2aSNd01kwU5UMdO9PYloSIpXLugZ8WyGDFGbe8pQnHVzr%2FIVqo9cUzrewSSrVrcs2EFKRbLGGkz9MitUXlOJU7OEcbrfrHmgv%2BDgHMMRXwADklNXS8u1KdUXaP3q2j2DWlEmlAdIHlIIqUs5lL0wM46GksNwISAxUZHVGsnoD7YeaWNPnwBVJWiFQe18bcbN&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA5JMSUL5KIOR5ITAK%2F20241030%2Fus-east-2%2Fs3%2Faws4_request&X-Amz-Date=20241030T170754Z&X-Amz-Expires=43200&X-Amz-SignedHeaders=host&X-Amz-Signature=c567add772a638c2add86e066e3f4c30f7c30dae99a09ef70a65e9a376ab332c" width="40">
             </div>
             <nav class="mt-10">
                 <a class="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-700 mb-4" href="./dashboard.php">
@@ -187,8 +187,8 @@
                 </div>
             </div>
 
-            <div class="bg-gray-800 text-white p-2 rounded-lg shadow-md" style="width:1000px">
-                <table>
+            <div class="bg-gray-800 text-white p-2 rounded-lg shadow-md" style="width:1000px; max-height: 600px; overflow-x: auto;">
+                <table style="width: 100%; border-collapse: collapse">
                     <thead>
                         <tr style="background-color:#2563eb">
                             <th class="py-2 px-4 border">N° de Ciclo</th>
@@ -203,7 +203,7 @@
                         <?php
                         include 'conexion.php'; // Asegúrate de que este archivo está bien configurado
 
-                        $sql = "SELECT * FROM ciclo";
+                        $sql = "SELECT * FROM ciclo ORDER BY id DESC";
                         $result = $conn->query($sql);
 
                         if ($result->num_rows > 0) {
