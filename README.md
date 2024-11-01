@@ -56,11 +56,15 @@ Ejecutando la Aplicación
     - Línea 19 y 20: Configuración WiFi <br>
 			```char ssid[] = "ssid_name";        // Tu ssid de WiFi```<br>
 			```char pass[] = "ssid_password";    // Tu contraseña de WiFi```
-    - Linea 23 a 26: Configuración MySQL <br>
-			```char mysql_user[] = "mysql_user";         // Tu usuario de MySQL```<br>
-			```char mysql_password[] = "mysql_pw";  // Tu contraseña de MySQL```<br>
+    - Configuración MySQL <br>
+		- Línea 23 a 24: <br>
+	 		```char mysql_user[] = "mysql_user";         // Tu usuario de MySQL```<br>
+	 		```char mysql_password[] = "mysql_pw";  // Tu contraseña de MySQL```<br>
+  		- Línea 25:
 			```IPAddress server_ip(ipv4_network); //  IPv4 Address```<br>
-			```char database[] = "db_name"; // Nombre de la base de datos```<br>
+			> Usar este ejemplo para ingresar la IP: **...(192, 168, 48, 23)...**</br>
+		- Línea 26:
+	 		```char database[] = "db_name"; // Nombre de la base de datos```<br>
     - Linea 50: Database MySQL: <br>
 			```if (conn.connect(server_ip, port, mysql_user, mysql_password)) { // "port" por el puerto que tengamos configurado en nuestra base de datos MySQL.```<br>
     - Linea 54: Database MySQL: <br>
