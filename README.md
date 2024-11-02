@@ -60,7 +60,7 @@ Ejecutando la Aplicación
 		- Línea 23 a 24: <br>
 	 		```char mysql_user[] = "mysql_user";         // Tu usuario de MySQL```<br>
 	 		```char mysql_password[] = "mysql_pw";  // Tu contraseña de MySQL```<br>
-  		- Línea 25:
+  		- Línea 25:<br>
 			```IPAddress server_ip(ipv4_network); //  IPv4 Address```<br>
 			> Usar este ejemplo para ingresar la IP: **...(192, 168, 48, 23)...**</br>
 		- Línea 26:
