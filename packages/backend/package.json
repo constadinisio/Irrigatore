@@ -3,6 +3,8 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
+    "start": "tsx src/index.ts",
+    "dev": "tsx watch src/index.ts",
     "lint": "tsc --noEmit",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
@@ -12,12 +14,18 @@
   },
   "dependencies": {
     "@irrigatore/shared": "workspace:*",
+    "@fastify/websocket": "^10.0.1",
     "drizzle-orm": "^0.33.0",
-    "postgres": "^3.4.4"
+    "fastify": "^4.28.0",
+    "mqtt": "^5.10.0",
+    "postgres": "^3.4.4",
+    "zod": "^3.23.0"
   },
   "devDependencies": {
     "@types/node": "^20.0.0",
+    "@types/ws": "^8.5.0",
     "drizzle-kit": "^0.24.0",
-    "tsx": "^4.16.0"
+    "tsx": "^4.16.0",
+    "ws": "^8.18.0"
   }
 }

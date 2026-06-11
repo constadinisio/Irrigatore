@@ -1,13 +1,13 @@
 import { describe, it, expect, afterAll } from "vitest";
 import postgres from "postgres";
+import { requireDb } from "./test-helpers.js";
 
-// Requiere DATABASE_URL apuntando a una DB de test (docker compose up postgres).
-const url = process.env.DATABASE_URL!;
-const sql = postgres(url, { max: 1 });
+const url = process.env.DATABASE_URL;
+const sql = postgres(url ?? "postgres://x", { max: 1 });
 
 afterAll(async () => { await sql.end(); });
 
-describe("hypertable readings", () => {
+requireDb(describe)("hypertable readings", () => {
   it("readings está registrada como hypertable de Timescale", async () => {
     const rows = await sql`
       SELECT hypertable_name FROM timescaledb_information.hypertables
