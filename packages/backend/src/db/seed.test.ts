@@ -1,11 +1,12 @@
 import { describe, it, expect, afterAll } from "vitest";
 import postgres from "postgres";
+import { requireDb } from "./test-helpers.js";
 
-const url = process.env.DATABASE_URL!;
-const sql = postgres(url, { max: 1 });
+const url = process.env.DATABASE_URL;
+const sql = postgres(url ?? "postgres://x", { max: 1 });
 afterAll(async () => { await sql.end(); });
 
-describe("seed", () => {
+requireDb(describe)("seed", () => {
   it("crea un device de desarrollo con dos zonas", async () => {
     const devs = await sql`SELECT id, device_key FROM devices WHERE device_key = 'dev-device-001'`;
     expect(devs.length).toBe(1);
