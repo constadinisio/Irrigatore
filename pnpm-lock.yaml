@@ -49,6 +49,22 @@ importers:
         specifier: ^3.23.0
         version: 3.25.76
 
+  tools/device-simulator:
+    dependencies:
+      '@irrigatore/shared':
+        specifier: workspace:*
+        version: link:../../packages/shared
+      mqtt:
+        specifier: ^5.10.0
+        version: 5.15.1
+    devDependencies:
+      '@types/node':
+        specifier: ^20.0.0
+        version: 20.19.43
+      tsx:
+        specifier: ^4.16.0
+        version: 4.22.4
+
 packages:
 
   '@babel/runtime@7.29.7':
