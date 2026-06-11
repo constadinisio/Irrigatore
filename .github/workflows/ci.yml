@@ -1,0 +1,36 @@
+name: CI
+
+on:
+  push:
+    branches: [main, "feat/**"]
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: timescale/timescaledb:2.16.1-pg16
+        env:
+          POSTGRES_USER: irrigatore
+          POSTGRES_PASSWORD: changeme_dev
+          POSTGRES_DB: irrigatore
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U irrigatore -d irrigatore"
+          --health-interval 5s --health-timeout 5s --health-retries 10
+    env:
+      DATABASE_URL: postgres://irrigatore:changeme_dev@localhost:5432/irrigatore
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm typecheck
+      - run: pnpm --filter @irrigatore/backend db:migrate
+      - run: pnpm --filter @irrigatore/backend db:seed
+      - run: pnpm test
